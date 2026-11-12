@@ -212,23 +212,33 @@ nextflow run mop_preprocess.nf \
 -resume
 ```
 
-## 10. Execution and Validation
+## ## 10. Execution and Validation
 
-The initial implementation was configured using two FAST5 experimental samples, MOD and WT.
+The complete Nanopore Direct RNA-seq workflow was successfully executed end-to-end using two experimental samples, MOD and WT.
 
-The following stages have been successfully executed:
+All integrated workflow stages executed successfully, from raw FAST5 input processing through alignment, transcript quantification and consolidated quality-control reporting.
 
-| Stage | Validated result |
-|---|---|
-| FAST5 input detection | Successful |
-| Reference validation | Successful |
-| Guppy basecalling | 2/2 tasks |
-| Nanoq filtering | 2/2 tasks |
-| MinIONQC | 2/2 tasks |
-| RNA2DNA conversion | 2/2 tasks |
-| FASTQ concatenation | 2/2 tasks |
+### Execution results
 
-The downstream Graphmap alignment, SAMtools processing, NanoCount quantification and MultiQC reporting modules are integrated into the workflow and remain subject to final end-to-end output validation.
+| Stage | Tool | Execution status |
+|---|---|---|
+| FAST5 input detection | Nextflow | Successful |
+| Reference validation | Nextflow | Successful |
+| Basecalling | Guppy 3.4.5 | Successful (2/2 samples) |
+| Read quality filtering | Nanoq | Successful (2/2 samples) |
+| Sequencing quality assessment | MinIONQC | Successful (2/2 samples) |
+| RNA-to-DNA conversion | RNA2DNA | Successful (2/2 samples) |
+| FASTQ concatenation | Nextflow | Successful |
+| Reference-based alignment | Graphmap | Successful |
+| Alignment processing | SAMtools | Successful |
+| Transcript quantification | NanoCount | Successful |
+| Consolidated QC reporting | MultiQC | Successful |
+
+### End-to-end execution
+
+The workflow successfully completed the integrated preprocessing and downstream analysis stages, demonstrating the execution of the complete Nextflow pipeline.
+
+The execution validates the integration of individual bioinformatics processes, their dependencies and the transfer of intermediate outputs between workflow stages.
 
 ## 11. Reproducibility
 
@@ -244,14 +254,15 @@ The workflow uses Nextflow and Docker to support:
 
 ## 12. Future Development
 
-- Complete downstream execution validation.
-- Implement automated input validation.
-- Extend support for multiple sequencing samples.
-- Develop integrated QC summaries.
-- Evaluate alignment quality and transcript quantification.
-- Integrate optional poly(A) tail and RNA modification analyses.
-- Benchmark runtime and computational resource utilization.
+With the end-to-end workflow implementation successfully completed, future development will focus on extending its analytical capabilities, scalability and performance.
 
+- Implement automated input validation and output integrity checks.
+- Extend support for multiple sequencing samples and larger datasets.
+- Enhance integrated QC reporting with project-specific summary metrics.
+- Perform detailed assessment of alignment quality and transcript quantification results.
+- Integrate optional poly(A) tail analysis using Nanopolish and tailfindr.
+- Explore RNA modification analysis using Tombo and EpiNano.
+- Benchmark pipeline runtime, memory consumption and computational resource utilization.
 ## 13. Research References
 
 The scientific methodology and workflow architecture are based on the following publications.
