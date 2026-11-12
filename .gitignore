@@ -1,0 +1,60 @@
+singularity
+mop_preprocess/bin/multi_to_single_fast5
+mop_preprocess/bin/read_fast5_basecaller.py
+mop_preprocess/bin/ont*
+mop_preprocess/bin/lib*
+mop_preprocess/bin/MINIMAP2_LICENSE
+mop_preprocess/bin/guppy*
+*/work
+*/.next*
+
+# Sequencing input data
+data/
+
+# Guppy software and archives
+ont-guppy*/
+ont-guppy_*.tar.gz*
+mop_preprocess/bin/ont-guppy/
+mop_preprocess/bin/guppy_*
+libz.so
+
+# Nextflow execution files
+mop_preprocess/work/
+mop_preprocess/output/
+mop_preprocess/.nextflow*
+.nextflow.log
+
+# Temporary files and backups
+*.bak
+wget-log
+mop_preprocess/log
+
+# Local sequencing data
+/data/
+*.fast5
+*.pod5
+
+# Guppy installation
+ont-guppy*/
+ont-guppy_*.tar.gz*
+mop_preprocess/bin/ont-guppy/
+mop_preprocess/bin/guppy_*
+libz.so
+
+# Nextflow execution
+mop_preprocess/work/
+mop_preprocess/output/
+mop_preprocess/log
+.nextflow*
+.nextflow.log*
+
+# Temporary backups
+*.bak
+wget-log*
+
+# Experimental sequencing data
+/data/
+*.fast5
+*.pod5
+*.fastq
+*.fastq.gz

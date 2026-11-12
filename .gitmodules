@@ -1,0 +1,4 @@
+[submodule "BioNextflow"]
+	path = BioNextflow
+	url = https://github.com/sanketVarak/BioNextflow.git
+	branch = fix/nextflow-26-compatibility
